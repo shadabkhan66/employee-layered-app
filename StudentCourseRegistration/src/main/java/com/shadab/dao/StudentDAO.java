@@ -8,9 +8,11 @@ import java.sql.PreparedStatement;
 
 public class StudentDAO {
 
+	//registerStudent method to insert student details into the database
     public static boolean registerStudent(Student student) {
         boolean status = false;
 
+        
         try (Connection con = DBConnection.getConnection()) {
         	String sql = "INSERT INTO student_info (id, name, email, course) VALUES (student_seq.NEXTVAL, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
